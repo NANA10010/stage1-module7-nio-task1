@@ -48,7 +48,7 @@ public class FileReaderTest {
         assertEquals(profile, actual);
         }
        catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
      
     }

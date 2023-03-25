@@ -42,14 +42,11 @@ public class FileReaderTest {
 
     @Test
     public void testProgramReadsDataCorrectly () {
-        try {
+    
         FileReader fileReader = new FileReader(); 
         Profile actual = fileReader.getDataFromFile(new File(TEST_FILE.toUri()));
         assertEquals(profile, actual);
-        }
-       catch (IOException e) {
-            e.printStackTrace();
-        }
+   
      
     }
 

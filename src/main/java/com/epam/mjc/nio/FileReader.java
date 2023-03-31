@@ -7,8 +7,8 @@ import java.nio.file.*;
 
 public class FileReader {
 
-    public Profile getDataFromFile(File file) throws IOException {
-        
+     public  Profile getDataFromFile(File file)  {
+    try {
         Path path = Path.of(file.getPath());
 
         String[] arr = new String[4];
@@ -25,12 +25,12 @@ public class FileReader {
 
             int ind = 0;
 
-            while (  ind <4) {
+            while (ind < 4) {
                 arr[ind] = reader.readLine();
                 String newStr = "";
-                int index=  arr[ind].indexOf(':');
-                for (int i=index+2; i<arr[ind].length(); i++){
-                    newStr+=arr[ind].charAt(i);
+                int index = arr[ind].indexOf(':');
+                for (int i = index + 2; i < arr[ind].length(); i++) {
+                    newStr += arr[ind].charAt(i);
                 }
                 arr[ind] = newStr;
                 ind++;
@@ -39,7 +39,10 @@ public class FileReader {
         } catch (IOException x) {
             System.err.println(x);
         }
-
+    }
+    catch (IOException e) {
+        throw new RuntimeException(e);
+    }
         name = arr[0];
         age = Integer.parseInt(arr[1]);
         email = arr[2];
